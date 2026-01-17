@@ -6,7 +6,7 @@ export default function CursorTracker() {
     const cursorRef = useRef<HTMLDivElement>(null);
     const positionRef = useRef({ x: 0, y: 0 });
     const targetRef = useRef({ x: 0, y: 0 });
-    const rafRef = useRef<number>();
+    const rafRef = useRef<number | undefined>(undefined);
 
     useEffect(() => {
         const cursor = cursorRef.current;
