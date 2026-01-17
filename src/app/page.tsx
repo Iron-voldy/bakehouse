@@ -1,65 +1,128 @@
-import Image from "next/image";
+import BakeryScroll from "@/components/BakeryScroll";
+import Footer from "@/components/Footer";
+import CursorTracker from "@/components/CursorTracker";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="relative overflow-x-clip">
+      <CursorTracker />
+      <BakeryScroll />
+
+      {/* Locations Section */}
+      <section id="locations" className="py-16 md:py-24 px-4 sm:px-6" style={{ background: '#EDE7DD' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-4xl mb-3" style={{ color: '#4A3B32' }}>Find Us</h2>
+            <p style={{ color: '#8D7F71' }} className="text-lg max-w-md mx-auto">
+              You&apos;ll find our bread and pastries at Dartington and Totnes
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Dartington */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <h3 className="font-serif text-2xl mb-4" style={{ color: '#4A3B32' }}>Dartington</h3>
+              <address className="not-italic mb-4 leading-relaxed" style={{ color: '#8D7F71' }}>
+                <p>2 Cedar Units</p>
+                <p>Webbers Yard Estate</p>
+                <p>TQ9 6JY</p>
+              </address>
+              <div className="font-medium mb-6" style={{ color: '#4A3B32' }}>
+                <p>Tuesday - Saturday: 8:30AM - 1:30PM</p>
+                <p>Sunday: 9:00AM - 12:30PM</p>
+              </div>
+              <a
+                href="mailto:hello@lunasbakehouselove.com?subject=Dartington Enquiry"
+                className="inline-block px-6 py-3 border-2 rounded-full text-sm font-medium transition-colors"
+                style={{
+                  borderColor: '#C9A66B',
+                  color: '#C9A66B'
+                }}
+              >
+                Email Us
+              </a>
+            </div>
+
+            {/* Totnes */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <h3 className="font-serif text-2xl mb-4" style={{ color: '#4A3B32' }}>Totnes</h3>
+              <address className="not-italic mb-4 leading-relaxed" style={{ color: '#8D7F71' }}>
+                <p>101a High Street</p>
+                <p>TQ9 5PF</p>
+              </address>
+              <div className="font-medium mb-6" style={{ color: '#4A3B32' }}>
+                <p>Wednesday - Saturday: 9AM - 3PM</p>
+              </div>
+              <a
+                href="mailto:hello@lunasbakehouselove.com?subject=Totnes Enquiry"
+                className="inline-block px-6 py-3 border-2 rounded-full text-sm font-medium transition-colors"
+                style={{
+                  borderColor: '#C9A66B',
+                  color: '#C9A66B'
+                }}
+              >
+                Email Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Makes Us Mighty Section */}
+      <section className="py-16 md:py-24 px-4 sm:px-6" style={{ background: '#F2EEE9' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-4xl mb-3" style={{ color: '#4A3B32' }}>What Makes Us Mighty</h2>
+            <p style={{ color: '#8D7F71' }} className="text-lg max-w-md mx-auto">
+              A small but mighty bakery rooted in Devon&apos;s fields
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Stone-Milled Grain", desc: "Flour made on site by us, fresh each week" },
+              { title: "Regeneratively Grown", desc: "Heritage grains from nearby Devon farms" },
+              { title: "Better Gut Health", desc: "Long fermentation for easier digestion" },
+              { title: "No Shortcuts", desc: "Never any additives or artificial ingredients" },
+              { title: "Heritage Grains", desc: "Cornovii, Ølands, Devon Landrace, YQ" },
+              { title: "Made With Love", desc: "By real humans, with heart" },
+            ].map((feature, i) => (
+              <div key={i} className="flex items-start gap-4 p-5 rounded-xl" style={{ background: '#EDE7DD' }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style={{ background: '#C9A66B' }}>
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-serif text-lg mb-1" style={{ color: '#4A3B32' }}>{feature.title}</h4>
+                  <p style={{ color: '#8D7F71' }}>{feature.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="py-16 md:py-24 px-4 sm:px-6" style={{ background: '#EDE7DD' }}>
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="font-serif text-3xl md:text-4xl mb-4" style={{ color: '#4A3B32' }}>
+            Luna&apos;s Loaf Letter
+          </h2>
+          <p style={{ color: '#8D7F71' }} className="text-lg mb-8">
+            We&apos;re getting ready to launch online ordering for our fresh bread, pastries, and flour.
+            Sign up and be the first to know when it goes live.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/loaf-letter"
+            className="cta-button"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Sign Up
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <Footer />
+    </main>
   );
 }
