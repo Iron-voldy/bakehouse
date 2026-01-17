@@ -162,7 +162,7 @@ function TextOverlay({ overlay, scrollProgress, onCtaHover }: TextOverlayProps) 
 function ScrollCanvas({ images }: { images: HTMLImageElement[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
   const [isCtaHovered, setIsCtaHovered] = useState(false);
 
   // Scroll progress - uses container ref after it's mounted
